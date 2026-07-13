@@ -1,7 +1,7 @@
 # Provenance and ownership review
 
 This record documents the pre-publication provenance review for the HRM reference implementation.
-It does not replace a legal ownership review or the licensor's personal attestation.
+It records the licensor's personal attestation but does not replace a legal ownership review.
 
 ## Repository origin
 
@@ -38,16 +38,15 @@ Automated text inspection cannot prove authorship or detect every possible simil
 code. Dependency license compliance must also be assessed separately before distributing bundled
 dependencies.
 
-## Licensor attestation required before publication
+## Recorded licensor attestation
 
-Before making the repository public, Anthony Castro must confirm that, to the best of his
-knowledge:
+Recorded on 2026-07-13 by Anthony Castro:
 
-- he owns or controls the rights needed to license every committed project-authored file;
-- no committed file is subject to an employer, contractor, client, or institutional ownership
-  claim;
-- no incompatible proprietary or copyleft source was incorporated into the repository; and
-- any third-party material is identified and distributed in compliance with its own license.
+> I confirm, to the best of my knowledge, that I own or control the rights required to license
+> every project-authored file; none is subject to an employer, contractor, client, or institutional
+> ownership claim; no incompatible proprietary or copyleft source was incorporated; and any
+> third-party material is identified and used under its own terms.
 
-The repository must remain private and licensing PRs must remain unmerged until this attestation is
-made and recorded by the repository owner.
+This satisfies the repository's owner-attestation gate. It does not establish legal certainty or
+replace professional legal review. The repository remains private and the licensing pull request
+remains a draft pending an explicit decision to merge and publish.
