@@ -1,5 +1,9 @@
 # Helical Recursive Manifold reference implementation
 
+[![tests](https://github.com/anthonyrenecastro-create/hrm-reference/actions/workflows/tests.yml/badge.svg)](https://github.com/anthonyrenecastro-create/hrm-reference/actions/workflows/tests.yml)
+[![lint](https://github.com/anthonyrenecastro-create/hrm-reference/actions/workflows/lint.yml/badge.svg)](https://github.com/anthonyrenecastro-create/hrm-reference/actions/workflows/lint.yml)
+[![reproducibility](https://github.com/anthonyrenecastro-create/hrm-reference/actions/workflows/reproducibility.yml/badge.svg)](https://github.com/anthonyrenecastro-create/hrm-reference/actions/workflows/reproducibility.yml)
+
 `hrm-reference` is a deterministic scientific reference implementation of the Helical Recursive Manifold (HRM): an attributed hybrid state-space system combining multidimensional graph fields, geometry, topology, memory, bounded predictive state, hierarchy, and measured resources.
 
 The repository is designed to answer a narrower and more useful question than “does a complex simulation run?”: **which named mechanisms execute, activate, change matched trajectories, and improve an appropriate outcome at comparable cost?**
@@ -96,5 +100,5 @@ and attribution notices are in [`NOTICE`](NOTICE).
 
 Commercial use requires a separate written license. See
 [`LICENSING.md`](LICENSING.md) for the licensing model and inquiry process. Repository provenance
-and the remaining pre-publication ownership attestation are documented in
+and the recorded pre-publication ownership attestation are documented in
 [`PROVENANCE.md`](PROVENANCE.md).

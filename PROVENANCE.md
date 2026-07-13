@@ -48,5 +48,5 @@ Recorded on 2026-07-13 by Anthony Castro:
 > third-party material is identified and used under its own terms.
 
 This satisfies the repository's owner-attestation gate. It does not establish legal certainty or
-replace professional legal review. The repository remains private and the licensing pull request
-remains a draft pending an explicit decision to merge and publish.
+replace professional legal review. On 2026-07-13, the repository owner explicitly authorized
+merging the prepared changes and publishing the repository.
