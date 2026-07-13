@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/hrm/ledger-1.0.schema.json",
+  "title": "HRM attribution ledger record 1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "run_id", "seed", "step", "numeric_precision", "solver",
+    "configuration_digest", "generator_identity", "input_identity", "pre_state_digest",
+    "post_state_digest", "state_block_versions", "timestep", "main_contributions",
+    "interaction_contributions", "stochastic_record", "proposed_events", "accepted_events",
+    "rejected_events", "transport_metadata", "event_effects", "corrections",
+    "correction_effects", "metrics_before", "metrics_after", "measured_cost",
+    "runtime_seconds", "reconstructed_delta", "observed_delta", "absolute_residual",
+    "relative_residual"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "run_id": {"type": "string"},
+    "seed": {"type": "integer"},
+    "step": {"type": "integer", "minimum": 0},
+    "numeric_precision": {"enum": ["float32", "float64"]},
+    "solver": {"type": "string"},
+    "configuration_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "generator_identity": {"type": "object"},
+    "input_identity": {"type": "string"},
+    "perturbation_identity": {"type": ["string", "null"]},
+    "pre_state_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "post_state_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "state_block_versions": {"type": "object", "additionalProperties": {"type": "integer"}},
+    "timestep": {"type": "number", "exclusiveMinimum": 0},
+    "adaptive_timestep_decision": {"type": ["string", "null"]},
+    "main_contributions": {"type": "array", "items": {"$ref": "#/$defs/proposal"}},
+    "interaction_contributions": {"type": "array", "items": {"$ref": "#/$defs/proposal"}},
+    "stochastic_record": {"type": "object"},
+    "proposed_events": {"type": "array", "items": {"$ref": "#/$defs/event"}},
+    "accepted_events": {"type": "array", "items": {"$ref": "#/$defs/event"}},
+    "rejected_events": {"type": "array", "items": {"$ref": "#/$defs/event"}},
+    "transport_metadata": {"type": "object"},
+    "event_effects": {"$ref": "#/$defs/numericalDelta"},
+    "corrections": {"type": "array", "items": {"type": "object"}},
+    "correction_effects": {"$ref": "#/$defs/numericalDelta"},
+    "metrics_before": {"type": "object"},
+    "metrics_after": {"type": "object"},
+    "measured_cost": {"type": "number"},
+    "runtime_seconds": {"type": "number", "minimum": 0},
+    "reconstructed_delta": {"$ref": "#/$defs/numericalDelta"},
+    "observed_delta": {"$ref": "#/$defs/numericalDelta"},
+    "absolute_residual": {"type": "number", "minimum": 0},
+    "relative_residual": {"type": "number", "minimum": 0}
+  },
+  "$defs": {
+    "numericalDelta": {
+      "type": "object",
+      "additionalProperties": {"type": ["array", "number"]}
+    },
+    "proposal": {
+      "type": "object",
+      "required": ["mechanism", "activation", "reads", "writes", "applied_norm"],
+      "properties": {
+        "mechanism": {"type": "string"},
+        "activation": {"type": "number", "minimum": 0},
+        "reads": {"type": "array", "items": {"type": "string"}},
+        "writes": {"type": "array", "items": {"type": "string"}},
+        "applied_norm": {"type": "number", "minimum": 0},
+        "contributions": {"$ref": "#/$defs/numericalDelta"}
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": ["event_id", "event_type", "affected_entities", "proposed_score", "disposition"],
+      "properties": {
+        "event_id": {"type": "string"},
+        "event_type": {"type": "string"},
+        "affected_entities": {"type": "array", "items": {"type": "string"}},
+        "proposed_score": {"type": "number"},
+        "disposition": {"type": "string"}
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HRM run summary 1.0",
+  "type": "object",
+  "required": [
+    "run_id", "task", "seed", "steps", "configuration_digest", "initial_state_digest",
+    "final_state_digest", "initial_numeric_state_digest", "final_numeric_state_digest",
+    "maximum_absolute_residual", "maximum_relative_residual",
+    "ledger_valid", "mechanism_gates", "final_metrics", "total_measured_cost",
+    "total_runtime_seconds", "accepted_events", "rejected_events", "claims"
+  ],
+  "properties": {
+    "run_id": {"type": "string"},
+    "task": {"type": "string"},
+    "seed": {"type": "integer"},
+    "steps": {"type": "integer", "minimum": 0},
+    "configuration_digest": {"type": "string"},
+    "initial_state_digest": {"type": "string"},
+    "final_state_digest": {"type": "string"},
+    "initial_numeric_state_digest": {"type": "string"},
+    "final_numeric_state_digest": {"type": "string"},
+    "maximum_absolute_residual": {"type": "number"},
+    "maximum_relative_residual": {"type": "number"},
+    "ledger_valid": {"type": "boolean"},
+    "mechanism_gates": {"type": "object"},
+    "final_metrics": {"type": "object"},
+    "total_measured_cost": {"type": "number"},
+    "total_runtime_seconds": {"type": "number"},
+    "accepted_events": {"type": "integer"},
+    "rejected_events": {"type": "integer"},
+    "claims": {"type": "object"}
+  }
+}

@@ -1,0 +1,25 @@
+name: hrm-minimal-smoke
+seed: 7
+dtype: float64
+steps: 6
+dimensions:
+  n_nodes: 12
+  channels: 4
+  spatial_dim: 2
+  latent_dim: 4
+  memory_capacity: 8
+  memory_key_dim: 4
+  memory_value_dim: 4
+  regions: 3
+graph:
+  kind: ring
+  neighbors: 1
+resources:
+  total_budget: 5000
+  min_width: 1
+  max_width: 4
+  event_budget: 2
+  memory_allowance: 8
+ledger:
+  tolerance: 1.0e-10
+  store_arrays: true

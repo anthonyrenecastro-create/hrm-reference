@@ -1,0 +1,1095 @@
+{
+  "ablations": [
+    "no_guidance",
+    "no_hrm_adaptation",
+    "fixed_topology",
+    "fixed_geometry",
+    "fixed_graph",
+    "no_hierarchy",
+    "memory_only",
+    "fixed_allocation",
+    "no_memory",
+    "no_cognition_to_field",
+    "no_field_to_cognition",
+    "no_regional_coupling",
+    "no_topology_repair",
+    "no_adaptive_timestep"
+  ],
+  "claims_boundary": "Synthetic matched comparisons only; utility requires activation, divergence, valid ledgers, and comparable cost.",
+  "comparisons": [
+    {
+      "ablated_cost": 7191.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.38112188746890424,
+      "ablation": "no_guidance",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9638118214716525,
+      "full_cost": 7461.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3812045865038618,
+      "seed": 0,
+      "state_diverged": true,
+      "utility_effect": -8.269903495755626e-05
+    },
+    {
+      "ablated_cost": 7159.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3595628203265308,
+      "ablation": "no_guidance",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9636559429263695,
+      "full_cost": 7429.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.35962910548291555,
+      "seed": 1,
+      "state_diverged": true,
+      "utility_effect": -6.628515638473775e-05
+    },
+    {
+      "ablated_cost": 7142.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.34541154046106975,
+      "ablation": "no_guidance",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.963702604236945,
+      "full_cost": 7411.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3454249745059918,
+      "seed": 2,
+      "state_diverged": true,
+      "utility_effect": -1.3434044922044919e-05
+    },
+    {
+      "ablated_cost": 5299.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3815771354305797,
+      "ablation": "no_hrm_adaptation",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.7102265111915292,
+      "full_cost": 7461.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3812045865038618,
+      "seed": 0,
+      "state_diverged": true,
+      "utility_effect": 0.0003725489267178972
+    },
+    {
+      "ablated_cost": 5421.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3572726690143058,
+      "ablation": "no_hrm_adaptation",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.729707901467223,
+      "full_cost": 7429.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.35962910548291555,
+      "seed": 1,
+      "state_diverged": true,
+      "utility_effect": -0.002356436468609724
+    },
+    {
+      "ablated_cost": 5287.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3432332831020197,
+      "ablation": "no_hrm_adaptation",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.71339900148428,
+      "full_cost": 7411.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3454249745059918,
+      "seed": 2,
+      "state_diverged": true,
+      "utility_effect": -0.0021916914039720736
+    },
+    {
+      "ablated_cost": 6763.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3815773101574808,
+      "ablation": "fixed_topology",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.9064468569896795,
+      "full_cost": 7461.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3812045865038618,
+      "seed": 0,
+      "state_diverged": true,
+      "utility_effect": 0.0003727236536190115
+    },
+    {
+      "ablated_cost": 6885.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.35727310667192635,
+      "ablation": "fixed_topology",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.9267734553775743,
+      "full_cost": 7429.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.35962910548291555,
+      "seed": 1,
+      "state_diverged": true,
+      "utility_effect": -0.0023559988109891905
+    },
+    {
+      "ablated_cost": 6751.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.34323312992772026,
+      "ablation": "fixed_topology",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.9109431925516124,
+      "full_cost": 7411.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3454249745059918,
+      "seed": 2,
+      "state_diverged": true,
+      "utility_effect": -0.00219184457827154
+    },
+    {
+      "ablated_cost": 6229.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.38120460313074256,
+      "ablation": "fixed_geometry",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.8348746816780591,
+      "full_cost": 7461.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3812045865038618,
+      "seed": 0,
+      "state_diverged": true,
+      "utility_effect": 1.6626880761094753e-08
+    },
+    {
+      "ablated_cost": 6197.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.35962917896476637,
+      "ablation": "fixed_geometry",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.8341634136492124,
+      "full_cost": 7429.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.35962910548291555,
+      "seed": 1,
+      "state_diverged": true,
+      "utility_effect": 7.348185082634018e-08
+    },
+    {
+      "ablated_cost": 6179.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.34542499134906857,
+      "ablation": "fixed_geometry",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.8337606260963432,
+      "full_cost": 7411.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3454249745059918,
+      "seed": 2,
+      "state_diverged": true,
+      "utility_effect": 1.684307676663721e-08
+    },
+    {
+      "ablated_cost": 5611.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3815773127875035,
+      "ablation": "fixed_graph",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.7520439619353974,
+      "full_cost": 7461.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3812045865038618,
+      "seed": 0,
+      "state_diverged": true,
+      "utility_effect": 0.0003727262836417111
+    },
+    {
+      "ablated_cost": 5733.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.35727319661283535,
+      "ablation": "fixed_graph",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.7717054785300848,
+      "full_cost": 7429.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.35962910548291555,
+      "seed": 1,
+      "state_diverged": true,
+      "utility_effect": -0.0023559088700801922
+    },
+    {
+      "ablated_cost": 5599.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.34323319248036627,
+      "ablation": "fixed_graph",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.7554985831871541,
+      "full_cost": 7411.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3454249745059918,
+      "seed": 2,
+      "state_diverged": true,
+      "utility_effect": -0.0021917820256255327
+    },
+    {
+      "ablated_cost": 6861.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.380421277223437,
+      "ablation": "no_hierarchy",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.9195818254925612,
+      "full_cost": 7461.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3812045865038618,
+      "seed": 0,
+      "state_diverged": true,
+      "utility_effect": -0.0007833092804248043
+    },
+    {
+      "ablated_cost": 6829.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.35859465868961654,
+      "ablation": "no_hierarchy",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.9192354287252658,
+      "full_cost": 7429.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.35962910548291555,
+      "seed": 1,
+      "state_diverged": true,
+      "utility_effect": -0.0010344467932990042
+    },
+    {
+      "ablated_cost": 6811.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3443996188149687,
+      "ablation": "no_hierarchy",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.9190392659560113,
+      "full_cost": 7411.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3454249745059918,
+      "seed": 2,
+      "state_diverged": true,
+      "utility_effect": -0.0010253556910230777
+    },
+    {
+      "ablated_cost": 1047.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3432835499232881,
+      "ablation": "memory_only",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.14032971451548049,
+      "full_cost": 7461.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3812045865038618,
+      "seed": 0,
+      "state_diverged": true,
+      "utility_effect": -0.03792103658057372
+    },
+    {
+      "ablated_cost": 1047.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.33062782074517455,
+      "ablation": "memory_only",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.14093417687441107,
+      "full_cost": 7429.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.35962910548291555,
+      "seed": 1,
+      "state_diverged": true,
+      "utility_effect": -0.029001284737740995
+    },
+    {
+      "ablated_cost": 1047.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3104219223829743,
+      "ablation": "memory_only",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.1412764809067602,
+      "full_cost": 7411.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3454249745059918,
+      "seed": 2,
+      "state_diverged": true,
+      "utility_effect": -0.03500305212301752
+    },
+    {
+      "ablated_cost": 7401.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.335708434257281,
+      "ablation": "fixed_allocation",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.991958182549256,
+      "full_cost": 7461.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3812045865038618,
+      "seed": 0,
+      "state_diverged": true,
+      "utility_effect": -0.04549615224658082
+    },
+    {
+      "ablated_cost": 7497.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.32273672919164015,
+      "ablation": "fixed_allocation",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 1.0091533180778032,
+      "full_cost": 7429.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.35962910548291555,
+      "seed": 1,
+      "state_diverged": true,
+      "utility_effect": -0.0368923762912754
+    },
+    {
+      "ablated_cost": 7369.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3014102148479059,
+      "ablation": "fixed_allocation",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9943327486169207,
+      "full_cost": 7411.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3454249745059918,
+      "seed": 2,
+      "state_diverged": true,
+      "utility_effect": -0.04401475965808588
+    },
+    {
+      "ablated_cost": 7022.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.38310626030091793,
+      "ablation": "no_memory",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.941160702318724,
+      "full_cost": 7461.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3812045865038618,
+      "seed": 0,
+      "state_diverged": true,
+      "utility_effect": 0.001901673797056136
+    },
+    {
+      "ablated_cost": 6982.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.369586377178945,
+      "ablation": "no_memory",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.9398303944003229,
+      "full_cost": 7429.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.35962910548291555,
+      "seed": 1,
+      "state_diverged": true,
+      "utility_effect": 0.009957271696029446
+    },
+    {
+      "ablated_cost": 6986.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.32852153932917344,
+      "ablation": "no_memory",
+      "cost_equal_within_5pct": false,
+      "cost_ratio": 0.9426528133855079,
+      "full_cost": 7411.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3454249745059918,
+      "seed": 2,
+      "state_diverged": true,
+      "utility_effect": -0.01690343517681836
+    },
+    {
+      "ablated_cost": 7173.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.38120431383720077,
+      "ablation": "no_cognition_to_field",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9613992762364293,
+      "full_cost": 7461.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3812045865038618,
+      "seed": 0,
+      "state_diverged": true,
+      "utility_effect": -2.72666661027543e-07
+    },
+    {
+      "ablated_cost": 7141.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.35962874447139237,
+      "ablation": "no_cognition_to_field",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9612330057881275,
+      "full_cost": 7429.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.35962910548291555,
+      "seed": 1,
+      "state_diverged": true,
+      "utility_effect": -3.610115231755806e-07
+    },
+    {
+      "ablated_cost": 7123.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.34542495898281134,
+      "ablation": "no_cognition_to_field",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9611388476588854,
+      "full_cost": 7411.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3454249745059918,
+      "seed": 2,
+      "state_diverged": true,
+      "utility_effect": -1.5523180463272723e-08
+    },
+    {
+      "ablated_cost": 7437.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3812045594699967,
+      "ablation": "no_field_to_cognition",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9967832730197024,
+      "full_cost": 7461.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3812045865038618,
+      "seed": 0,
+      "state_diverged": true,
+      "utility_effect": -2.7033865090952958e-08
+    },
+    {
+      "ablated_cost": 7405.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3596290681925785,
+      "ablation": "no_field_to_cognition",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9967694171490105,
+      "full_cost": 7429.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.35962910548291555,
+      "seed": 1,
+      "state_diverged": true,
+      "utility_effect": -3.729033704047424e-08
+    },
+    {
+      "ablated_cost": 7387.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3454249772576228,
+      "ablation": "no_field_to_cognition",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9967615706382403,
+      "full_cost": 7411.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3454249745059918,
+      "seed": 2,
+      "state_diverged": true,
+      "utility_effect": 2.751630978625741e-09
+    },
+    {
+      "ablated_cost": 7119.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3806881041379824,
+      "ablation": "no_regional_coupling",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9541616405307598,
+      "full_cost": 7461.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3812045865038618,
+      "seed": 0,
+      "state_diverged": true,
+      "utility_effect": -0.0005164823658794226
+    },
+    {
+      "ablated_cost": 7087.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3587331360244679,
+      "ablation": "no_regional_coupling",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9539641943734014,
+      "full_cost": 7429.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.35962910548291555,
+      "seed": 1,
+      "state_diverged": true,
+      "utility_effect": -0.0008959694584476652
+    },
+    {
+      "ablated_cost": 7070.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.344667457221648,
+      "ablation": "no_regional_coupling",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9539873161516663,
+      "full_cost": 7411.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3454249745059918,
+      "seed": 2,
+      "state_diverged": true,
+      "utility_effect": -0.0007575172843438116
+    },
+    {
+      "ablated_cost": 7461.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3812045865038618,
+      "ablation": "no_topology_repair",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9999999999999999,
+      "full_cost": 7461.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3812045865038618,
+      "seed": 0,
+      "state_diverged": false,
+      "utility_effect": 0.0
+    },
+    {
+      "ablated_cost": 7429.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.35962910548291555,
+      "ablation": "no_topology_repair",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9999999999999999,
+      "full_cost": 7429.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.35962910548291555,
+      "seed": 1,
+      "state_diverged": false,
+      "utility_effect": 0.0
+    },
+    {
+      "ablated_cost": 7411.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3454249745059918,
+      "ablation": "no_topology_repair",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9999999999999999,
+      "full_cost": 7411.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3454249745059918,
+      "seed": 2,
+      "state_diverged": false,
+      "utility_effect": 0.0
+    },
+    {
+      "ablated_cost": 7461.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3812045865038618,
+      "ablation": "no_adaptive_timestep",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9999999999999999,
+      "full_cost": 7461.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3812045865038618,
+      "seed": 0,
+      "state_diverged": false,
+      "utility_effect": 0.0
+    },
+    {
+      "ablated_cost": 7429.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.35962910548291555,
+      "ablation": "no_adaptive_timestep",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9999999999999999,
+      "full_cost": 7429.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.35962910548291555,
+      "seed": 1,
+      "state_diverged": false,
+      "utility_effect": 0.0
+    },
+    {
+      "ablated_cost": 7411.0,
+      "ablated_ledger_valid": true,
+      "ablated_outcome": 0.3454249745059918,
+      "ablation": "no_adaptive_timestep",
+      "cost_equal_within_5pct": true,
+      "cost_ratio": 0.9999999999999999,
+      "full_cost": 7411.0,
+      "full_ledger_valid": true,
+      "full_outcome": 0.3454249745059918,
+      "seed": 2,
+      "state_diverged": false,
+      "utility_effect": 0.0
+    }
+  ],
+  "configuration_differences": {
+    "fixed_allocation": {
+      "enabled.allocation": {
+        "ablated": false,
+        "full": true
+      },
+      "fixed_allocation": {
+        "ablated": true,
+        "full": false
+      }
+    },
+    "fixed_geometry": {
+      "enabled.geometry": {
+        "ablated": false,
+        "full": true
+      },
+      "fixed_geometry": {
+        "ablated": true,
+        "full": false
+      }
+    },
+    "fixed_graph": {
+      "enabled.geometry": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.topology": {
+        "ablated": false,
+        "full": true
+      },
+      "fixed_geometry": {
+        "ablated": true,
+        "full": false
+      },
+      "fixed_graph": {
+        "ablated": true,
+        "full": false
+      },
+      "fixed_topology": {
+        "ablated": true,
+        "full": false
+      }
+    },
+    "fixed_topology": {
+      "enabled.topology": {
+        "ablated": false,
+        "full": true
+      },
+      "fixed_topology": {
+        "ablated": true,
+        "full": false
+      }
+    },
+    "memory_only": {
+      "enabled.allocation": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.cognition": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.cognition_to_field": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.diffusion": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.field_to_cognition": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.geometry": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.guidance": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.hierarchy_bottom_up": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.hierarchy_to_cognition": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.hierarchy_top_down": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.reaction": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.regional": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.residual_uncertainty_interaction": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.topology": {
+        "ablated": false,
+        "full": true
+      }
+    },
+    "no_adaptive_timestep": {
+      "safety.adaptive_timestep": {
+        "ablated": false,
+        "full": true
+      }
+    },
+    "no_cognition_to_field": {
+      "enabled.cognition_to_field": {
+        "ablated": false,
+        "full": true
+      }
+    },
+    "no_field_to_cognition": {
+      "enabled.field_to_cognition": {
+        "ablated": false,
+        "full": true
+      }
+    },
+    "no_guidance": {
+      "enabled.guidance": {
+        "ablated": false,
+        "full": true
+      }
+    },
+    "no_hierarchy": {
+      "enabled.hierarchy_bottom_up": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.hierarchy_to_cognition": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.hierarchy_top_down": {
+        "ablated": false,
+        "full": true
+      },
+      "hierarchy.enabled": {
+        "ablated": false,
+        "full": true
+      }
+    },
+    "no_hrm_adaptation": {
+      "enabled.cognition_to_field": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.field_to_cognition": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.geometry": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.topology": {
+        "ablated": false,
+        "full": true
+      }
+    },
+    "no_memory": {
+      "enabled.memory": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.memory_to_cognition": {
+        "ablated": false,
+        "full": true
+      },
+      "enabled.memory_to_field": {
+        "ablated": false,
+        "full": true
+      }
+    },
+    "no_regional_coupling": {
+      "enabled.regional": {
+        "ablated": false,
+        "full": true
+      }
+    },
+    "no_topology_repair": {
+      "topology.repair_enabled": {
+        "ablated": false,
+        "full": true
+      }
+    }
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "statistics": [
+    {
+      "ablation": "no_guidance",
+      "benjamini_hochberg_p": 0.5,
+      "bootstrap_ci_95": [
+        -8.269903495755626e-05,
+        -1.3434044922044919e-05
+      ],
+      "holm_p": 1.0,
+      "n": 3,
+      "paired_mean_difference": -5.413941208811298e-05,
+      "paired_median_difference": -6.628515638473775e-05,
+      "per_seed_difference": [
+        -8.269903495755626e-05,
+        -6.628515638473775e-05,
+        -1.3434044922044919e-05
+      ],
+      "robust_effect_size": -2.723836572190075,
+      "sign_test_p": 0.25,
+      "wilcoxon_p": 0.25
+    },
+    {
+      "ablation": "no_hrm_adaptation",
+      "benjamini_hochberg_p": 0.6363636363636364,
+      "bootstrap_ci_95": [
+        -0.002356436468609724,
+        0.0003725489267178972
+      ],
+      "holm_p": 1.0,
+      "n": 3,
+      "paired_mean_difference": -0.0013918596486213002,
+      "paired_median_difference": -0.0021916914039720736,
+      "per_seed_difference": [
+        0.0003725489267178972,
+        -0.002356436468609724,
+        -0.0021916914039720736
+      ],
+      "robust_effect_size": -8.973110022335074,
+      "sign_test_p": 1.0,
+      "wilcoxon_p": 0.5
+    },
+    {
+      "ablation": "fixed_topology",
+      "benjamini_hochberg_p": 0.6363636363636364,
+      "bootstrap_ci_95": [
+        -0.0023559988109891905,
+        0.0003727236536190115
+      ],
+      "holm_p": 1.0,
+      "n": 3,
+      "paired_mean_difference": -0.0013917065785472398,
+      "paired_median_difference": -0.00219184457827154,
+      "per_seed_difference": [
+        0.0003727236536190115,
+        -0.0023559988109891905,
+        -0.00219184457827154
+      ],
+      "robust_effect_size": -9.006035852818023,
+      "sign_test_p": 1.0,
+      "wilcoxon_p": 0.5
+    },
+    {
+      "ablation": "fixed_geometry",
+      "benjamini_hochberg_p": 0.5,
+      "bootstrap_ci_95": [
+        1.6626880761094753e-08,
+        7.348185082634018e-08
+      ],
+      "holm_p": 1.0,
+      "n": 3,
+      "paired_mean_difference": 3.565060278469071e-08,
+      "paired_median_difference": 1.684307676663721e-08,
+      "per_seed_difference": [
+        1.6626880761094753e-08,
+        7.348185082634018e-08,
+        1.684307676663721e-08
+      ],
+      "robust_effect_size": 52.30528808243203,
+      "sign_test_p": 0.25,
+      "wilcoxon_p": 0.25
+    },
+    {
+      "ablation": "fixed_graph",
+      "benjamini_hochberg_p": 0.6363636363636364,
+      "bootstrap_ci_95": [
+        -0.0023559088700801922,
+        0.0003727262836417111
+      ],
+      "holm_p": 1.0,
+      "n": 3,
+      "paired_mean_difference": -0.0013916548706880045,
+      "paired_median_difference": -0.0021917820256255327,
+      "per_seed_difference": [
+        0.0003727262836417111,
+        -0.0023559088700801922,
+        -0.0021917820256255327
+      ],
+      "robust_effect_size": -9.007281648386462,
+      "sign_test_p": 1.0,
+      "wilcoxon_p": 0.5
+    },
+    {
+      "ablation": "no_hierarchy",
+      "benjamini_hochberg_p": 0.5,
+      "bootstrap_ci_95": [
+        -0.0010344467932990042,
+        -0.0007833092804248043
+      ],
+      "holm_p": 1.0,
+      "n": 3,
+      "paired_mean_difference": -0.0009477039215822954,
+      "paired_median_difference": -0.0010253556910230777,
+      "per_seed_difference": [
+        -0.0007833092804248043,
+        -0.0010344467932990042,
+        -0.0010253556910230777
+      ],
+      "robust_effect_size": -76.07359830606661,
+      "sign_test_p": 0.25,
+      "wilcoxon_p": 0.25
+    },
+    {
+      "ablation": "memory_only",
+      "benjamini_hochberg_p": 0.5,
+      "bootstrap_ci_95": [
+        -0.03792103658057372,
+        -0.029001284737740995
+      ],
+      "holm_p": 1.0,
+      "n": 3,
+      "paired_mean_difference": -0.033975124480444076,
+      "paired_median_difference": -0.03500305212301752,
+      "per_seed_difference": [
+        -0.03792103658057372,
+        -0.029001284737740995,
+        -0.03500305212301752
+      ],
+      "robust_effect_size": -8.090939326707256,
+      "sign_test_p": 0.25,
+      "wilcoxon_p": 0.25
+    },
+    {
+      "ablation": "fixed_allocation",
+      "benjamini_hochberg_p": 0.5,
+      "bootstrap_ci_95": [
+        -0.04549615224658082,
+        -0.0368923762912754
+      ],
+      "holm_p": 1.0,
+      "n": 3,
+      "paired_mean_difference": -0.042134429398647366,
+      "paired_median_difference": -0.04401475965808588,
+      "per_seed_difference": [
+        -0.04549615224658082,
+        -0.0368923762912754,
+        -0.04401475965808588
+      ],
+      "robust_effect_size": -20.040297811995668,
+      "sign_test_p": 0.25,
+      "wilcoxon_p": 0.25
+    },
+    {
+      "ablation": "no_memory",
+      "benjamini_hochberg_p": 1.0,
+      "bootstrap_ci_95": [
+        -0.01690343517681836,
+        0.009957271696029446
+      ],
+      "holm_p": 1.0,
+      "n": 3,
+      "paired_mean_difference": -0.0016814965612442594,
+      "paired_median_difference": 0.001901673797056136,
+      "per_seed_difference": [
+        0.001901673797056136,
+        0.009957271696029446,
+        -0.01690343517681836
+      ],
+      "robust_effect_size": 0.15922609588760422,
+      "sign_test_p": 1.0,
+      "wilcoxon_p": 1.0
+    },
+    {
+      "ablation": "no_cognition_to_field",
+      "benjamini_hochberg_p": 0.5,
+      "bootstrap_ci_95": [
+        -3.610115231755806e-07,
+        -1.5523180463272723e-08
+      ],
+      "holm_p": 1.0,
+      "n": 3,
+      "paired_mean_difference": -2.1640045488879878e-07,
+      "paired_median_difference": -2.72666661027543e-07,
+      "per_seed_difference": [
+        -2.72666661027543e-07,
+        -3.610115231755806e-07,
+        -1.5523180463272723e-08
+      ],
+      "robust_effect_size": -2.081717681041386,
+      "sign_test_p": 0.25,
+      "wilcoxon_p": 0.25
+    },
+    {
+      "ablation": "no_field_to_cognition",
+      "benjamini_hochberg_p": 0.6363636363636364,
+      "bootstrap_ci_95": [
+        -3.729033704047424e-08,
+        2.751630978625741e-09
+      ],
+      "holm_p": 1.0,
+      "n": 3,
+      "paired_mean_difference": -2.0524190384267154e-08,
+      "paired_median_difference": -2.7033865090952958e-08,
+      "per_seed_difference": [
+        -2.7033865090952958e-08,
+        -3.729033704047424e-08,
+        2.751630978625741e-09
+      ],
+      "robust_effect_size": -1.7776399766450897,
+      "sign_test_p": 1.0,
+      "wilcoxon_p": 0.5
+    },
+    {
+      "ablation": "no_regional_coupling",
+      "benjamini_hochberg_p": 0.5,
+      "bootstrap_ci_95": [
+        -0.0008959694584476652,
+        -0.0005164823658794226
+      ],
+      "holm_p": 1.0,
+      "n": 3,
+      "paired_mean_difference": -0.0007233230362236331,
+      "paired_median_difference": -0.0007575172843438116,
+      "per_seed_difference": [
+        -0.0005164823658794226,
+        -0.0008959694584476652,
+        -0.0007575172843438116
+      ],
+      "robust_effect_size": -3.690360285423095,
+      "sign_test_p": 0.25,
+      "wilcoxon_p": 0.25
+    },
+    {
+      "ablation": "no_topology_repair",
+      "benjamini_hochberg_p": 1.0,
+      "bootstrap_ci_95": [
+        0.0,
+        0.0
+      ],
+      "holm_p": 1.0,
+      "n": 3,
+      "paired_mean_difference": 0.0,
+      "paired_median_difference": 0.0,
+      "per_seed_difference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "robust_effect_size": 0.0,
+      "sign_test_p": 1.0,
+      "wilcoxon_p": 1.0
+    },
+    {
+      "ablation": "no_adaptive_timestep",
+      "benjamini_hochberg_p": 1.0,
+      "bootstrap_ci_95": [
+        0.0,
+        0.0
+      ],
+      "holm_p": 1.0,
+      "n": 3,
+      "paired_mean_difference": 0.0,
+      "paired_median_difference": 0.0,
+      "per_seed_difference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "robust_effect_size": 0.0,
+      "sign_test_p": 1.0,
+      "wilcoxon_p": 1.0
+    }
+  ],
+  "task": "spatial-reconstruction"
+}

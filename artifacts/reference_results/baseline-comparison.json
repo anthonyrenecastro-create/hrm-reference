@@ -1,0 +1,26 @@
+{
+  "capacity": {
+    "channels": 4,
+    "nodes": 12,
+    "steps": 6
+  },
+  "claims_boundary": "single-seed smoke comparison; unequal operation models are disclosed and no superiority is inferred",
+  "results": {
+    "graph_diffusion": {
+      "cost": 1728.0,
+      "mse": 0.34274746363085234
+    },
+    "hrm": {
+      "cost": 7457.0,
+      "mse": 0.32712013757176184
+    },
+    "persistence": {
+      "cost": 48.0,
+      "mse": 0.3414318144210709
+    },
+    "reaction_diffusion": {
+      "cost": 2880.0,
+      "mse": 0.3283360328367709
+    }
+  }
+}

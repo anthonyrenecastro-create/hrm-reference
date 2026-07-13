@@ -1,0 +1,107 @@
+name: hrm-reference-default
+seed: 7
+dtype: float64
+steps: 20
+dimensions:
+  n_nodes: 24
+  channels: 6
+  spatial_dim: 2
+  latent_dim: 6
+  memory_capacity: 16
+  memory_key_dim: 6
+  memory_value_dim: 6
+  regions: 4
+initialization:
+  field_scale: 0.05
+  coordinate_scale: 1.0
+graph:
+  kind: ring
+  neighbors: 2
+  weighted: true
+  laplacian: symmetric
+  distance_scale: 1.0
+  min_degree: 1
+  max_degree: 8
+  require_connected: true
+dynamics:
+  dt: 0.04
+  solver: explicit_euler
+  diffusion_kind: geometry_aware_graph
+  diffusion: 0.18
+  reaction: cubic
+  reaction_a: 0.45
+  reaction_b: 0.35
+  reaction_competition: 0.02
+  input_gain: 0.35
+  passive_decay: 0.015
+  regional_gain: 0.08
+  cognition_gain: 0.16
+  field_coupling_gain: 0.05
+  memory_coupling_gain: 0.05
+  guidance_gain: 0.08
+  guidance_bound: 0.25
+  stochastic_scale: 0.0
+  cadence: {}
+memory:
+  decay: 0.01
+  temperature: 3.0
+  age_penalty: 0.02
+  write_threshold: 0.18
+  novelty_weight: 0.4
+  residual_weight: 0.4
+  uncertainty_weight: 0.2
+  max_strength: 1.0
+hierarchy:
+  enabled: true
+  levels: 2
+  bottom_up_gain: 0.3
+  top_down_gain: 0.06
+  max_feedback_gain: 0.25
+geometry:
+  enabled: true
+  gain: 0.01
+  max_displacement: 0.02
+  anchor_penalty: 0.05
+  min_separation: 0.001
+  max_separation: 10.0
+  adaptive_weights: true
+topology:
+  enabled: true
+  grow_threshold: 0.25
+  prune_threshold: -0.1
+  cost_weight: 0.15
+  risk_weight: 0.1
+  stress_weight: 0.5
+  robustness_weight: 0.2
+  min_edge_age: 3
+  cooldown: 2
+  churn_limit: 0.2
+  repair_enabled: true
+resources:
+  total_budget: 10000.0
+  min_width: 1
+  max_width: 6
+  switching_penalty: 0.05
+  event_budget: 4
+  memory_allowance: 16
+  adaptive: true
+safety:
+  adaptive_timestep: true
+  min_dt: 0.00001
+  field_abs_bound: 8.0
+  field_norm_bound: 64.0
+  cognitive_norm_bound: 16.0
+  coordinate_bound: 5.0
+  max_corrections_per_step: 8
+  rollback_on_nonfinite: true
+ledger:
+  tolerance: 1.0e-10
+  store_arrays: true
+  schema_version: "1.0"
+perturbation_schedule: []
+fixed_topology: false
+fixed_geometry: false
+fixed_graph: false
+fixed_allocation: false
+allow_supervised_guidance: false
+output_root: artifacts

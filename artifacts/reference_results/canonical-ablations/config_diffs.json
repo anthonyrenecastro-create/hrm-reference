@@ -1,0 +1,198 @@
+{
+  "fixed_allocation": {
+    "enabled.allocation": {
+      "ablated": false,
+      "full": true
+    },
+    "fixed_allocation": {
+      "ablated": true,
+      "full": false
+    }
+  },
+  "fixed_geometry": {
+    "enabled.geometry": {
+      "ablated": false,
+      "full": true
+    },
+    "fixed_geometry": {
+      "ablated": true,
+      "full": false
+    }
+  },
+  "fixed_graph": {
+    "enabled.geometry": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.topology": {
+      "ablated": false,
+      "full": true
+    },
+    "fixed_geometry": {
+      "ablated": true,
+      "full": false
+    },
+    "fixed_graph": {
+      "ablated": true,
+      "full": false
+    },
+    "fixed_topology": {
+      "ablated": true,
+      "full": false
+    }
+  },
+  "fixed_topology": {
+    "enabled.topology": {
+      "ablated": false,
+      "full": true
+    },
+    "fixed_topology": {
+      "ablated": true,
+      "full": false
+    }
+  },
+  "memory_only": {
+    "enabled.allocation": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.cognition": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.cognition_to_field": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.diffusion": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.field_to_cognition": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.geometry": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.guidance": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.hierarchy_bottom_up": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.hierarchy_to_cognition": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.hierarchy_top_down": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.reaction": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.regional": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.residual_uncertainty_interaction": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.topology": {
+      "ablated": false,
+      "full": true
+    }
+  },
+  "no_adaptive_timestep": {
+    "safety.adaptive_timestep": {
+      "ablated": false,
+      "full": true
+    }
+  },
+  "no_cognition_to_field": {
+    "enabled.cognition_to_field": {
+      "ablated": false,
+      "full": true
+    }
+  },
+  "no_field_to_cognition": {
+    "enabled.field_to_cognition": {
+      "ablated": false,
+      "full": true
+    }
+  },
+  "no_guidance": {
+    "enabled.guidance": {
+      "ablated": false,
+      "full": true
+    }
+  },
+  "no_hierarchy": {
+    "enabled.hierarchy_bottom_up": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.hierarchy_to_cognition": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.hierarchy_top_down": {
+      "ablated": false,
+      "full": true
+    },
+    "hierarchy.enabled": {
+      "ablated": false,
+      "full": true
+    }
+  },
+  "no_hrm_adaptation": {
+    "enabled.cognition_to_field": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.field_to_cognition": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.geometry": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.topology": {
+      "ablated": false,
+      "full": true
+    }
+  },
+  "no_memory": {
+    "enabled.memory": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.memory_to_cognition": {
+      "ablated": false,
+      "full": true
+    },
+    "enabled.memory_to_field": {
+      "ablated": false,
+      "full": true
+    }
+  },
+  "no_regional_coupling": {
+    "enabled.regional": {
+      "ablated": false,
+      "full": true
+    }
+  },
+  "no_topology_repair": {
+    "topology.repair_enabled": {
+      "ablated": false,
+      "full": true
+    }
+  }
+}

@@ -1,0 +1,4 @@
+enabled:
+  memory: false
+  memory_to_cognition: false
+  memory_to_field: false

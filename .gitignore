@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.hypothesis/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.venv/
+dist/
+build/
+artifacts/*
+!artifacts/schemas/
+!artifacts/reference_results/
+!artifacts/**/.gitkeep

@@ -1,0 +1,20 @@
+enabled:
+  passive: true
+  input: true
+  diffusion: false
+  reaction: false
+  regional: false
+  memory: true
+  cognition: false
+  guidance: false
+  hierarchy_bottom_up: false
+  hierarchy_top_down: false
+  geometry: false
+  topology: false
+  allocation: false
+  field_to_cognition: false
+  cognition_to_field: false
+  memory_to_cognition: true
+  memory_to_field: true
+  hierarchy_to_cognition: false
+  residual_uncertainty_interaction: false

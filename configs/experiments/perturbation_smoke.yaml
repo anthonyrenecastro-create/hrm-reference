@@ -1,0 +1,7 @@
+name: configured-perturbation-smoke
+steps: 8
+perturbation_schedule:
+  - step: 3
+    kind: field_noise
+    magnitude: 0.35
+    label: configured-field-noise-v1

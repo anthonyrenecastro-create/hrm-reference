@@ -1,0 +1,10 @@
+name: hrm-fixed-graph-control
+seed: 7
+steps: 20
+fixed_graph: true
+fixed_allocation: true
+resources:
+  total_budget: 10000
+  min_width: 6
+  max_width: 6
+  adaptive: false

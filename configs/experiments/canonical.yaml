@@ -1,0 +1,11 @@
+tasks:
+  - spatial-reconstruction
+  - sequence-prediction
+  - associative-recall
+  - perturbation-recovery
+  - resource-adaptation
+  - topology-usefulness
+  - topology-irrelevance
+seeds: 30
+require_ledger: true
+paired: true

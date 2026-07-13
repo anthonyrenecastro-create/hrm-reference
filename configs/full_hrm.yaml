@@ -1,0 +1,36 @@
+name: hrm-full-reference
+seed: 7
+dtype: float64
+steps: 30
+dimensions:
+  n_nodes: 32
+  channels: 8
+  spatial_dim: 2
+  latent_dim: 8
+  memory_capacity: 24
+  memory_key_dim: 8
+  memory_value_dim: 8
+  regions: 4
+graph:
+  kind: ring
+  neighbors: 2
+  laplacian: symmetric
+  max_degree: 10
+dynamics:
+  dt: 0.035
+  diffusion: 0.16
+  reaction: cubic
+  stochastic_scale: 0.0
+resources:
+  total_budget: 20000
+  min_width: 2
+  max_width: 8
+  event_budget: 5
+  memory_allowance: 24
+topology:
+  enabled: true
+  grow_threshold: 0.2
+  churn_limit: 0.15
+ledger:
+  tolerance: 1.0e-10
+  store_arrays: true
