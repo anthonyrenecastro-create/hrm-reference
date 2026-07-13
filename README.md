@@ -91,7 +91,10 @@ New mechanisms must declare read/write ownership, produce side-effect-free propo
 
 The public source is available under the
 [PolyForm Noncommercial License 1.0.0](LICENSE) for the permitted noncommercial purposes defined
-in that license. The required project notices are in [`NOTICE`](NOTICE).
+in that license. This is a source-available project, not OSI open source. The required provenance
+and attribution notices are in [`NOTICE`](NOTICE).
 
 Commercial use requires a separate written license. See
-[`COMMERCIAL_LICENSE.md`](COMMERCIAL_LICENSE.md) for availability and the inquiry process.
+[`LICENSING.md`](LICENSING.md) for the licensing model and inquiry process. Repository provenance
+and the remaining pre-publication ownership attestation are documented in
+[`PROVENANCE.md`](PROVENANCE.md).

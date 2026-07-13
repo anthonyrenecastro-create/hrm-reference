@@ -11,10 +11,13 @@ Changes must preserve the authoritative transition and claims boundary.
 
 Architectural changes should include a short decision record in `docs/`.
 
-## Contribution licensing
+## Temporary code-contribution policy
 
-Unless a separate written agreement applies, accepted contributions are distributed under the
-repository's PolyForm Noncommercial License 1.0.0. Contributors retain their own copyrights.
-Commercial licenses offered by the project owner cover only rights the project owner controls, so
-a separate contributor agreement may be required before incorporating a contribution into a
-commercially licensed distribution.
+Outside code contributions will **not be merged** until a contributor license agreement is
+operational. The agreement must grant the project owner sufficient rights to distribute accepted
+contributions under both the public PolyForm Noncommercial license and separate commercial terms.
+
+Until that process is published, community members are welcome to open issues, report reproduction
+results, discuss designs, and propose experiments, but maintainers must not merge third-party code.
+This temporary restriction prevents contributor-owned code from creating uncertainty in the
+commercially licensed edition.

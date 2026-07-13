@@ -4,7 +4,8 @@
 
 - Changed the public license for version 0.1.1 and later from Apache License 2.0 to PolyForm
   Noncommercial 1.0.0.
-- Added a separate commercial-licensing path and required project notices.
+- Added a separate commercial-licensing path, required provenance notices, a provenance review,
+  and a temporary code-contribution block pending a contributor license agreement.
 
 ## 0.1.0 — 2026-07-13
 
