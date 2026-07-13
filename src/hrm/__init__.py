@@ -5,4 +5,4 @@ from hrm.core.transition import TransitionEngine
 from hrm.state.unified import HRMState
 
 __all__ = ["HRMConfig", "HRMState", "TransitionEngine", "load_config"]
-__version__ = "0.1.0"
+__version__ = "0.1.1"

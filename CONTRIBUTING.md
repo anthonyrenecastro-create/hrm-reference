@@ -30,3 +30,14 @@ make smoke
 Maintainers can also run each workflow manually from the GitHub Actions page. Ledger or replay
 failure is a release blocker even when every other test passes. Reproducibility evidence is retained
 as a workflow artifact for 14 days to support diagnosis.
+
+## Temporary code-contribution policy
+
+Outside code contributions will **not be merged** until a contributor license agreement is
+operational. The agreement must grant the project owner sufficient rights to distribute accepted
+contributions under both the public PolyForm Noncommercial license and separate commercial terms.
+
+Until that process is published, community members are welcome to open issues, report reproduction
+results, discuss designs, and propose experiments, but maintainers must not merge third-party code.
+This temporary restriction prevents contributor-owned code from creating uncertainty in the
+commercially licensed edition.
