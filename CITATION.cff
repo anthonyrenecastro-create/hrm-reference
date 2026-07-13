@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: Castro
     given-names: Anthony
-version: 0.1.0
+version: 0.1.1
 date-released: 2026-07-13
-license: Apache-2.0
+license: PolyForm-Noncommercial-1.0.0
 repository-code: "https://github.com/anthonyrenecastro-create/hrm-reference"

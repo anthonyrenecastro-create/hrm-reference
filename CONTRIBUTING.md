@@ -10,3 +10,11 @@ Changes must preserve the authoritative transition and claims boundary.
 6. Run `make check` before proposing a change.
 
 Architectural changes should include a short decision record in `docs/`.
+
+## Contribution licensing
+
+Unless a separate written agreement applies, accepted contributions are distributed under the
+repository's PolyForm Noncommercial License 1.0.0. Contributors retain their own copyrights.
+Commercial licenses offered by the project owner cover only rights the project owner controls, so
+a separate contributor agreement may be required before incorporating a contribution into a
+commercially licensed distribution.

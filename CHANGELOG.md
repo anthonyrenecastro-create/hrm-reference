@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1 — 2026-07-13
+
+- Changed the public license for version 0.1.1 and later from Apache License 2.0 to PolyForm
+  Noncommercial 1.0.0.
+- Added a separate commercial-licensing path and required project notices.
+
 ## 0.1.0 — 2026-07-13
 
 - Initial attributed HRM reference implementation.
