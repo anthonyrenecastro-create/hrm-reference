@@ -32,3 +32,11 @@ def test_memory_only_has_no_hidden_guidance_or_hierarchy(config):
     assert not ablated.enabled["guidance"]
     assert not ablated.enabled["hierarchy_bottom_up"]
     assert not ablated.enabled["hierarchy_top_down"]
+
+
+def test_bifurcation_defaults_are_valid():
+    config = HRMConfig()
+    assert not config.bifurcation.enabled
+    assert config.bifurcation.branches >= 1
+    assert config.bifurcation.horizon >= 1
+    assert 0.0 <= config.bifurcation.trigger_threshold <= 1.0

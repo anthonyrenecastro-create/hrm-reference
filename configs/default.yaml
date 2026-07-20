@@ -98,6 +98,11 @@ ledger:
   tolerance: 1.0e-10
   store_arrays: true
   schema_version: "1.0"
+bifurcation:
+  enabled: false
+  branches: 4
+  horizon: 2
+  trigger_threshold: 0.55
 perturbation_schedule: []
 fixed_topology: false
 fixed_geometry: false

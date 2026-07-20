@@ -140,6 +140,12 @@ class LedgerConfig(StrictModel):
     store_arrays: bool = True
     schema_version: str = "1.0"
 
+class BifurcationConfig(StrictModel):
+    enabled: bool = False
+    branches: int = Field(4, ge=1)
+    horizon: int = Field(2, ge=1)
+    trigger_threshold: float = Field(0.55, ge=0.0, le=1.0)
+
 
 class PerturbationConfig(StrictModel):
     step: int = Field(ge=0)
@@ -187,6 +193,7 @@ class HRMConfig(StrictModel):
     resources: ResourceConfig = Field(default_factory=ResourceConfig)
     safety: SafetyConfig = Field(default_factory=SafetyConfig)
     ledger: LedgerConfig = Field(default_factory=LedgerConfig)
+    bifurcation: BifurcationConfig = Field(default_factory=BifurcationConfig)
     perturbation_schedule: tuple[PerturbationConfig, ...] = ()
     enabled: dict[str, bool] = Field(default_factory=lambda: dict(DEFAULT_ENABLED))
     fixed_topology: bool = False

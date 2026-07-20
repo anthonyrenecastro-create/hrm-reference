@@ -16,9 +16,9 @@ import pandas as pd
 
 from hrm.config import HRMConfig, PerturbationConfig, save_config
 from hrm.core.determinism import DeterministicContext
+from hrm.core.engine_selection import build_transition_engine
 from hrm.core.invariants import refresh_topology
 from hrm.core.ledger import LedgerRecord, write_ledger
-from hrm.core.transition import TransitionEngine
 from hrm.experiments.claims import mechanism_gate_report
 from hrm.experiments.reporting import write_metric_plot, write_summary_markdown
 from hrm.experiments.schedule import serialize_schedule
@@ -128,7 +128,7 @@ def run_task(
     )
 
     state = bundle.initial_state.clone()
-    engine = TransitionEngine(resolved)
+    engine = build_transition_engine(resolved)
     ledgers: list[LedgerRecord] = []
     metrics: list[dict[str, Any]] = []
     costs: list[dict[str, Any]] = []

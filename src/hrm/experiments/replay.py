@@ -9,9 +9,9 @@ from typing import Any
 import numpy as np
 
 from hrm.config import load_config
+from hrm.core.engine_selection import build_transition_engine
 from hrm.core.ledger import load_ledger
 from hrm.core.proposal import ExternalInput
-from hrm.core.transition import TransitionEngine
 from hrm.experiments.runner import apply_configured_perturbation
 from hrm.state.digest import state_digest
 from hrm.state.serialization import load_state
@@ -26,7 +26,7 @@ def replay_run(path: str | Path) -> dict[str, Any]:
     originals = load_ledger(root / "ledger.jsonl")
     state = load_state(root / "initial_state.npz", config.dtype)
     task = build_task(summary["task"], config, summary["seed"])
-    engine = TransitionEngine(config)
+    engine = build_transition_engine(config)
     mismatches: list[dict[str, Any]] = []
     for step, raw in enumerate(schedule["inputs"]):
         perturbation_identities: list[str] = []

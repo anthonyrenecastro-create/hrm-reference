@@ -32,8 +32,34 @@ def _config(path: str | None) -> HRMConfig:
     return load_config(path) if path else HRMConfig()
 
 
+def _with_bifurcation_override(config: HRMConfig, args: argparse.Namespace) -> HRMConfig:
+    enabled = getattr(args, "bifurcation", None)
+    if enabled is None:
+        return config
+    data = config.model_dump(mode="python")
+    data["bifurcation"] = {**data.get("bifurcation", {}), "enabled": bool(enabled)}
+    return HRMConfig.model_validate(data)
+
+
+def _add_bifurcation_toggle(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument(
+        "--bifurcation",
+        dest="bifurcation",
+        action="store_true",
+        default=None,
+        help="override config to enable bifurcating transition engine",
+    )
+    parser.add_argument(
+        "--no-bifurcation",
+        dest="bifurcation",
+        action="store_false",
+        default=None,
+        help="override config to disable bifurcating transition engine",
+    )
+
+
 def _run(args: argparse.Namespace) -> int:
-    config = _config(args.config)
+    config = _with_bifurcation_override(_config(args.config), args)
     output = (
         Path(args.output)
         if args.output
@@ -45,7 +71,7 @@ def _run(args: argparse.Namespace) -> int:
 
 
 def _experiment(args: argparse.Namespace) -> int:
-    config = _config(args.config)
+    config = _with_bifurcation_override(_config(args.config), args)
     root = Path(args.output or config.output_root) / f"experiment-{args.task}"
     summaries = []
     for seed in range(args.seeds):
@@ -82,7 +108,7 @@ def _experiment(args: argparse.Namespace) -> int:
 
 
 def _ablate(args: argparse.Namespace) -> int:
-    config = _config(args.config)
+    config = _with_bifurcation_override(_config(args.config), args)
     root = Path(args.output or config.output_root) / f"ablations-{args.task}"
     result = run_ablation_suite(config, args.task, list(range(args.seeds)), root)
     print(json.dumps({"output": str(root), "comparisons": len(result["comparisons"])}, indent=2))
@@ -110,7 +136,7 @@ def _report(args: argparse.Namespace) -> int:
 
 
 def _profile(args: argparse.Namespace) -> int:
-    config = _config(args.config)
+    config = _with_bifurcation_override(_config(args.config), args)
     output = Path(args.output or config.output_root) / "profile-smoke"
     profile = output.parent / "hrm.prof"
     profile.parent.mkdir(parents=True, exist_ok=True)
@@ -142,12 +168,14 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--task", choices=TASKS, default="spatial-reconstruction")
     run.add_argument("--output")
     run.add_argument("--run-id")
+    _add_bifurcation_toggle(run)
     run.set_defaults(func=_run)
     experiment = sub.add_parser("experiment")
     experiment.add_argument("task", choices=TASKS)
     experiment.add_argument("--seeds", type=int, default=5)
     experiment.add_argument("--config")
     experiment.add_argument("--output")
+    _add_bifurcation_toggle(experiment)
     experiment.set_defaults(func=_experiment)
     ablate = sub.add_parser("ablate")
     ablate.add_argument("--config")
@@ -155,6 +183,7 @@ def build_parser() -> argparse.ArgumentParser:
     ablate.add_argument("--task", choices=TASKS, default="spatial-reconstruction")
     ablate.add_argument("--seeds", type=int, default=5)
     ablate.add_argument("--output")
+    _add_bifurcation_toggle(ablate)
     ablate.set_defaults(func=_ablate)
     ledger = sub.add_parser("ledger")
     ledger_sub = ledger.add_subparsers(dest="ledger_command", required=True)
@@ -171,6 +200,7 @@ def build_parser() -> argparse.ArgumentParser:
     profile = sub.add_parser("profile")
     profile.add_argument("--config")
     profile.add_argument("--output")
+    _add_bifurcation_toggle(profile)
     profile.set_defaults(func=_profile)
     return parser
 
