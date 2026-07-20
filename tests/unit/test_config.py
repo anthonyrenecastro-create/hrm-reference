@@ -40,3 +40,4 @@ def test_bifurcation_defaults_are_valid():
     assert config.bifurcation.branches >= 1
     assert config.bifurcation.horizon >= 1
     assert 0.0 <= config.bifurcation.trigger_threshold <= 1.0
+    assert config.bifurcation.improvement_margin >= 0.0

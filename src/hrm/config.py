@@ -145,6 +145,7 @@ class BifurcationConfig(StrictModel):
     branches: int = Field(4, ge=1)
     horizon: int = Field(2, ge=1)
     trigger_threshold: float = Field(0.55, ge=0.0, le=1.0)
+    improvement_margin: float = Field(0.0, ge=0.0)
 
 
 class PerturbationConfig(StrictModel):

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from hrm.config import HRMConfig
 from hrm.core.bifurcation import BifurcatingTransitionEngine, BifurcationPolicy
+from hrm.state.digest import state_digest
 
 
 def test_bifurcation_engine_falls_back_to_single_path(config, state, external):
@@ -20,22 +21,78 @@ def test_bifurcation_engine_falls_back_to_single_path(config, state, external):
     assert result.state.run_metadata["bifurcation"]["attempted"] is False
 
 
-def test_bifurcation_engine_selects_branch_when_threshold_reached(config, state, external):
+def test_branches_differ_with_zero_stochastic_noise(config, state, external):
     data = config.model_dump(mode="python")
-    data["dynamics"]["stochastic_scale"] = 0.15
-    stochastic = HRMConfig.model_validate(data)
+    data["dynamics"]["stochastic_scale"] = 0.0
+    deterministic = HRMConfig.model_validate(data)
     engine = BifurcatingTransitionEngine(
-        stochastic,
+        deterministic,
         BifurcationPolicy(branches=3, horizon=2, trigger_threshold=0.0),
     )
 
     result = engine.step(state, external, run_id="bifurcate")
 
-    assert result.state.step == state.step + 1
-    assert result.bifurcated is True
-    assert result.selected_branch is not None
-    assert 0 <= result.selected_branch < 3
     assert len(result.branches) == 3
-    assert "bifurcation" in result.state.run_metadata
-    assert result.state.run_metadata["bifurcation"]["attempted"] is True
-    assert result.state.run_metadata["bifurcation"]["selected_branch"] == result.selected_branch
+    digests = {branch.post_state_digest for branch in result.branches}
+    assert len(digests) > 1
+
+
+def test_bifurcation_results_are_deterministic(config, state, external):
+    engine = BifurcatingTransitionEngine(
+        config,
+        BifurcationPolicy(branches=4, horizon=2, trigger_threshold=0.0),
+    )
+
+    first = engine.step(state.clone(), external, run_id="deterministic")
+    second = engine.step(state.clone(), external, run_id="deterministic")
+
+    assert first.bifurcated == second.bifurcated
+    assert first.selected_branch == second.selected_branch
+    assert first.baseline_objective == second.baseline_objective
+    assert [branch.objective for branch in first.branches] == [
+        branch.objective for branch in second.branches
+    ]
+    assert [branch.post_state_digest for branch in first.branches] == [
+        branch.post_state_digest for branch in second.branches
+    ]
+    assert state_digest(first.state) == state_digest(second.state)
+
+
+def test_branch_policies_are_recorded(config, state, external):
+    engine = BifurcatingTransitionEngine(
+        config,
+        BifurcationPolicy(branches=4, horizon=2, trigger_threshold=0.0),
+    )
+
+    result = engine.step(state, external, run_id="metadata")
+
+    assert len(result.branches) == 4
+    for branch in result.branches:
+        assert branch.policy.branch == branch.branch
+        assert branch.policy.max_width >= config.resources.min_width
+        assert branch.policy.input_scale > 0.0
+    metadata = result.state.run_metadata["bifurcation"]
+    assert metadata["attempted"] is True
+    assert len(metadata["branches"]) == 4
+    assert "policy" in metadata["branches"][0]
+
+
+def test_inferior_branch_does_not_replace_baseline(config, state, external):
+    engine = BifurcatingTransitionEngine(
+        config,
+        BifurcationPolicy(
+            branches=4,
+            horizon=2,
+            trigger_threshold=0.0,
+            improvement_margin=1e6,
+        ),
+    )
+
+    result = engine.step(state, external, run_id="margin")
+
+    assert result.bifurcated is False
+    assert result.selected_branch is None
+    metadata = result.state.run_metadata["bifurcation"]
+    assert metadata["attempted"] is True
+    assert metadata["decision"] == "retained_baseline_margin"
+    assert metadata["improvement_margin"] == 1e6
