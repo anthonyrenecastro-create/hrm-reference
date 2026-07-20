@@ -91,6 +91,48 @@ The short baseline calibration produced reconstruction MSE `0.32712` for HRM at 
 
 New mechanisms must declare read/write ownership, produce side-effect-free proposals, expose configuration, have activation and ablation tests, and preserve the ledger identity. Accelerated backends may replace kernels but not transition semantics.
 
+## Bifurcating transition engine
+
+Use the bifurcating engine in place of the ordinary transition engine:
+
+```python
+from hrm.core.bifurcation import (
+	BifurcatingTransitionEngine,
+	BifurcationPolicy,
+)
+
+engine = BifurcatingTransitionEngine(
+	config,
+	BifurcationPolicy(
+		branches=4,
+		horizon=2,
+		trigger_threshold=0.55,
+	),
+)
+
+result = engine.step(state, external_input, run_id="experiment")
+state = result.state
+```
+
+The returned result still exposes:
+
+- `result.state`
+- `result.ledger`
+
+And adds:
+
+- `result.bifurcated`
+- `result.selected_branch`
+- `result.insufficiency`
+- `result.baseline_objective`
+- `result.branches`
+
+Branch decisions and objective scores are also written into:
+
+- `state.run_metadata["bifurcation"]`
+
+Compatibility notes: bifurcation is only attempted when the step insufficiency reaches the configured `trigger_threshold`; otherwise the engine follows the ordinary single-path transition for that step (`result.bifurcated == False`). In the non-bifurcated case, `result.selected_branch` is `None` to indicate that no branch was chosen.
+
 ## License
 
 The public source is available under the
