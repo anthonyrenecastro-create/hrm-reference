@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict
+from dataclasses import field
 from dataclasses import replace
 from dataclasses import dataclass
 from typing import Any
@@ -14,15 +15,46 @@ from hrm.core.interaction import Interaction
 from hrm.core.ledger import LedgerRecord
 from hrm.core.proposal import ExternalInput, Mechanism
 from hrm.core.transition import TransitionEngine, TransitionResult
+from hrm.state.digest import state_digest
 from hrm.state.unified import HRMState
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(frozen=True, slots=True, init=False)
 class BifurcationPolicy:
-    branches: int = 4
-    horizon: int = 2
-    trigger_threshold: float = 0.55
-    improvement_margin: float = 0.0
+    branches: int = field(default=4)
+    horizon: int = field(default=2)
+    trigger_threshold: float = field(default=0.55)
+    baseline_margin: float = field(default=0.0)
+
+    def __init__(
+        self,
+        branches: int = 4,
+        horizon: int = 2,
+        trigger_threshold: float = 0.55,
+        baseline_margin: float | None = None,
+        improvement_margin: float | None = None,
+    ) -> None:
+        if baseline_margin is not None and improvement_margin is not None:
+            raise ValueError(
+                "bifurcation margin conflict: provide only one of baseline_margin or improvement_margin"
+            )
+        resolved_margin = (
+            baseline_margin if baseline_margin is not None else improvement_margin
+        )
+        object.__setattr__(self, "branches", int(branches))
+        object.__setattr__(self, "horizon", int(horizon))
+        object.__setattr__(self, "trigger_threshold", float(trigger_threshold))
+        object.__setattr__(
+            self,
+            "baseline_margin",
+            0.0 if resolved_margin is None else float(resolved_margin),
+        )
+        self.__post_init__()
+
+    @property
+    def improvement_margin(self) -> float:
+        # Deprecated alias retained for backwards compatibility.
+        return self.baseline_margin
 
     def __post_init__(self) -> None:
         if self.branches < 1:
@@ -31,8 +63,8 @@ class BifurcationPolicy:
             raise ValueError("horizon must be >= 1")
         if not (0.0 <= self.trigger_threshold <= 1.0):
             raise ValueError("trigger_threshold must be in [0.0, 1.0]")
-        if self.improvement_margin < 0.0:
-            raise ValueError("improvement_margin must be >= 0.0")
+        if self.baseline_margin < 0.0:
+            raise ValueError("baseline_margin must be >= 0.0")
 
 
 @dataclass(frozen=True, slots=True)
@@ -209,7 +241,7 @@ class BifurcatingTransitionEngine:
             objective=cumulative / float(self.policy.horizon),
             cumulative_objective=cumulative,
             first_step=first_step,
-            post_state_digest=first_step.ledger.post_state_digest,
+            post_state_digest=state_digest(current_state),
             policy=policy,
         )
 
@@ -261,7 +293,7 @@ class BifurcatingTransitionEngine:
             baseline.first_step.state.run_metadata["bifurcation"] = {
                 "attempted": False,
                 "trigger_threshold": self.policy.trigger_threshold,
-                "improvement_margin": self.policy.improvement_margin,
+                "baseline_margin": self.policy.baseline_margin,
                 "insufficiency": insufficiency,
                 "baseline_objective": baseline_objective,
                 "selected_branch": None,
@@ -293,7 +325,7 @@ class BifurcatingTransitionEngine:
         )
 
         improve_by = baseline_objective - selected.objective
-        adopt = improve_by >= self.policy.improvement_margin
+        adopt = improve_by >= self.policy.baseline_margin
 
         chosen = selected if adopt else baseline
         selected_branch = selected.branch if adopt else None
@@ -303,7 +335,7 @@ class BifurcatingTransitionEngine:
         selected_state.run_metadata["bifurcation"] = {
             "attempted": True,
             "trigger_threshold": self.policy.trigger_threshold,
-            "improvement_margin": self.policy.improvement_margin,
+            "baseline_margin": self.policy.baseline_margin,
             "insufficiency": insufficiency,
             "baseline_objective": baseline_objective,
             "selected_branch": selected_branch,

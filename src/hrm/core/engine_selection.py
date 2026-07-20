@@ -23,7 +23,7 @@ def build_transition_engine(
                 branches=config.bifurcation.branches,
                 horizon=config.bifurcation.horizon,
                 trigger_threshold=config.bifurcation.trigger_threshold,
-                improvement_margin=config.bifurcation.improvement_margin,
+                baseline_margin=config.bifurcation.baseline_margin,
             ),
             mechanisms=list(mechanisms) if mechanisms is not None else None,
             interactions=list(interactions) if interactions is not None else None,

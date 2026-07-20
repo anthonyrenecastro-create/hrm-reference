@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import pytest
+
 from hrm.config import HRMConfig
 from hrm.core.bifurcation import BifurcatingTransitionEngine, BifurcationPolicy
 from hrm.state.digest import state_digest
@@ -55,6 +57,7 @@ def test_bifurcation_results_are_deterministic(config, state, external):
     assert [branch.post_state_digest for branch in first.branches] == [
         branch.post_state_digest for branch in second.branches
     ]
+    assert [branch.policy for branch in first.branches] == [branch.policy for branch in second.branches]
     assert state_digest(first.state) == state_digest(second.state)
 
 
@@ -75,6 +78,7 @@ def test_branch_policies_are_recorded(config, state, external):
     assert metadata["attempted"] is True
     assert len(metadata["branches"]) == 4
     assert "policy" in metadata["branches"][0]
+    assert metadata["branches"][0]["policy"]["branch"] == metadata["branches"][0]["branch"]
 
 
 def test_inferior_branch_does_not_replace_baseline(config, state, external):
@@ -84,7 +88,7 @@ def test_inferior_branch_does_not_replace_baseline(config, state, external):
             branches=4,
             horizon=2,
             trigger_threshold=0.0,
-            improvement_margin=1e6,
+            baseline_margin=1e6,
         ),
     )
 
@@ -95,4 +99,41 @@ def test_inferior_branch_does_not_replace_baseline(config, state, external):
     metadata = result.state.run_metadata["bifurcation"]
     assert metadata["attempted"] is True
     assert metadata["decision"] == "retained_baseline_margin"
-    assert metadata["improvement_margin"] == 1e6
+    assert metadata["baseline_margin"] == 1e6
+
+
+def test_improvement_margin_alias_still_works(config, state, external):
+    engine = BifurcatingTransitionEngine(
+        config,
+        BifurcationPolicy(
+            branches=3,
+            horizon=2,
+            trigger_threshold=0.0,
+            improvement_margin=0.25,
+        ),
+    )
+
+    result = engine.step(state, external, run_id="alias")
+
+    assert result.state.step == state.step + 1
+    assert engine.policy.baseline_margin == 0.25
+    assert engine.policy.improvement_margin == 0.25
+
+
+def test_margin_alias_conflict_raises_configuration_error():
+    with pytest.raises(ValueError, match="provide only one of baseline_margin or improvement_margin"):
+        BifurcationPolicy(baseline_margin=0.1, improvement_margin=0.2)
+
+
+def test_branch_post_state_digest_is_deterministic(config, state, external):
+    engine = BifurcatingTransitionEngine(
+        config,
+        BifurcationPolicy(branches=3, horizon=2, trigger_threshold=0.0),
+    )
+
+    first = engine.step(state.clone(), external, run_id="digest")
+    second = engine.step(state.clone(), external, run_id="digest")
+
+    assert [branch.post_state_digest for branch in first.branches] == [
+        branch.post_state_digest for branch in second.branches
+    ]

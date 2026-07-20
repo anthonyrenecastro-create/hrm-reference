@@ -145,7 +145,24 @@ class BifurcationConfig(StrictModel):
     branches: int = Field(4, ge=1)
     horizon: int = Field(2, ge=1)
     trigger_threshold: float = Field(0.55, ge=0.0, le=1.0)
-    improvement_margin: float = Field(0.0, ge=0.0)
+    baseline_margin: float = Field(0.0, ge=0.0)
+
+    @model_validator(mode="before")
+    @classmethod
+    def compatibility_alias(cls, data: object) -> object:
+        if not isinstance(data, dict):
+            return data
+        has_baseline = "baseline_margin" in data
+        has_legacy = "improvement_margin" in data
+        if has_baseline and has_legacy:
+            raise ValueError(
+                "bifurcation margin conflict: provide only one of baseline_margin or improvement_margin"
+            )
+        if has_legacy:
+            cloned = dict(data)
+            cloned["baseline_margin"] = cloned.pop("improvement_margin")
+            return cloned
+        return data
 
 
 class PerturbationConfig(StrictModel):

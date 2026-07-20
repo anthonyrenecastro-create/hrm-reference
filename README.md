@@ -107,6 +107,7 @@ engine = BifurcatingTransitionEngine(
 		branches=4,
 		horizon=2,
 		trigger_threshold=0.55,
+		baseline_margin=0.0,
 	),
 )
 
@@ -132,6 +133,8 @@ Branch decisions and objective scores are also written into:
 - `state.run_metadata["bifurcation"]`
 
 Compatibility notes: bifurcation is only attempted when the step insufficiency reaches the configured `trigger_threshold`; otherwise the engine follows the ordinary single-path transition for that step (`result.bifurcated == False`). In the non-bifurcated case, `result.selected_branch` is `None` to indicate that no branch was chosen.
+
+Margin notes: `baseline_margin` controls how much better a branch must score before replacing the ordinary baseline step. `improvement_margin` remains accepted as a deprecated alias in `BifurcationPolicy` for backwards compatibility.
 
 ## License
 

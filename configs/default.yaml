@@ -103,7 +103,7 @@ bifurcation:
   branches: 4
   horizon: 2
   trigger_threshold: 0.55
-  improvement_margin: 0.0
+  baseline_margin: 0.0
 perturbation_schedule: []
 fixed_topology: false
 fixed_geometry: false

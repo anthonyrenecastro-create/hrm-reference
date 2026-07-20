@@ -40,4 +40,28 @@ def test_bifurcation_defaults_are_valid():
     assert config.bifurcation.branches >= 1
     assert config.bifurcation.horizon >= 1
     assert 0.0 <= config.bifurcation.trigger_threshold <= 1.0
-    assert config.bifurcation.improvement_margin >= 0.0
+    assert config.bifurcation.baseline_margin >= 0.0
+
+
+def test_bifurcation_config_accepts_legacy_margin_alias():
+    config = HRMConfig.model_validate(
+        {
+            "bifurcation": {
+                "enabled": True,
+                "improvement_margin": 0.3,
+            }
+        }
+    )
+    assert config.bifurcation.baseline_margin == 0.3
+
+
+def test_bifurcation_config_rejects_conflicting_margin_names():
+    with pytest.raises(ValueError, match="provide only one of baseline_margin or improvement_margin"):
+        HRMConfig.model_validate(
+            {
+                "bifurcation": {
+                    "baseline_margin": 0.1,
+                    "improvement_margin": 0.2,
+                }
+            }
+        )
